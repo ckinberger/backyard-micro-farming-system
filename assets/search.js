@@ -52,5 +52,3 @@ function renderResults(results) {
     </a>
   `).join("");
 }
-
-document.addEventListener("DOMContentLoaded", initSearch);
