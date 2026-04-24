@@ -68,10 +68,12 @@ function highlightActiveLink() {
 
   links.forEach(link => {
     const href = link.getAttribute("href");
-    if (currentPath.includes(href.replace("/backyard-micro-farming-system", ""))) {
+
+    // normalize paths
+    const cleanHref = new URL(href, window.location.origin).pathname;
+
+    if (currentPath === cleanHref) {
       link.classList.add("active");
     }
   });
 }
-
-document.addEventListener("DOMContentLoaded", loadNav);
