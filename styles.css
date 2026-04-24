@@ -1,83 +1,122 @@
-/* ===== RESET ===== */
+/* =========================
+   RESET
+========================= */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* ===== ROOT DESIGN TOKENS ===== */
+/* =========================
+   DESIGN TOKENS
+========================= */
 :root {
   --bg: #ffffff;
-  --text: #1a1a1a;
-  --muted: #6b7280;
-  --border: #e5e7eb;
+  --surface: #f8fafc;
+  --text: #0f172a;
+  --muted: #64748b;
+  --border: #e2e8f0;
+
   --link: #2563eb;
   --link-hover: #1d4ed8;
-  --accent: #111827;
-  --max-width: 900px;
+
+  --accent: #0f766e;
+
+  --shadow: 0 1px 2px rgba(0,0,0,0.05);
+
+  --radius: 10px;
+  --max-width: 920px;
+  --sidebar-width: 240px;
 }
 
-/* ===== BASE ===== */
+/* =========================
+   BASE LAYOUT
+========================= */
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   background: var(--bg);
   color: var(--text);
   line-height: 1.65;
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 24px;
+
+  display: grid;
+  grid-template-columns: var(--sidebar-width) 1fr;
+  min-height: 100vh;
 }
-main {
-  max-width: 720px;
-}
-/* ===== NAV ===== */
+
+/* =========================
+   SIDEBAR NAV (APP-LIKE)
+========================= */
 nav {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+
+  padding: 18px 14px;
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+
   display: flex;
-  gap: 16px;
-  margin-bottom: 32px;
-  font-size: 14px;
+  flex-direction: column;
+  gap: 6px;
 }
 
 nav a {
+  font-size: 14px;
   color: var(--muted);
   text-decoration: none;
+
+  padding: 8px 10px;
+  border-radius: 8px;
+
+  transition: all 0.15s ease;
 }
 
 nav a:hover {
+  background: #eef2ff;
   color: var(--text);
 }
 
-/* ===== HEADINGS ===== */
+/* =========================
+   MAIN CONTENT AREA
+========================= */
+main {
+  max-width: var(--max-width);
+  padding: 42px 28px;
+}
+
+/* =========================
+   TYPOGRAPHY
+========================= */
 h1 {
-  font-size: 32px;
-  margin-bottom: 16px;
-  letter-spacing: -0.5px;
+  font-size: 34px;
+  line-height: 1.2;
+  letter-spacing: -0.6px;
+  margin-bottom: 14px;
 }
 
 h2 {
   font-size: 20px;
-  margin-top: 40px;
-  margin-bottom: 12px;
-  border-bottom: 1px solid var(--border);
+  margin-top: 34px;
+  margin-bottom: 10px;
+
   padding-bottom: 6px;
+  border-bottom: 1px solid var(--border);
 }
 
 h3 {
   font-size: 16px;
   margin-top: 20px;
+  color: var(--accent);
 }
 
-/* ===== TEXT ===== */
 p {
-  margin-bottom: 16px;
+  margin-bottom: 14px;
   color: var(--text);
 }
 
-small {
-  color: var(--muted);
-}
-
-/* ===== LINKS ===== */
+/* =========================
+   LINKS
+========================= */
 a {
   color: var(--link);
   text-decoration: none;
@@ -88,34 +127,76 @@ a:hover {
   text-decoration: underline;
 }
 
-/* ===== LISTS ===== */
+/* =========================
+   LISTS
+========================= */
 ul {
-  margin-left: 20px;
-  margin-bottom: 16px;
+  margin: 12px 0 16px 18px;
 }
 
 li {
   margin-bottom: 6px;
 }
 
-/* ===== SECTION SPACING ===== */
-section {
-  margin-bottom: 40px;
-}
-
-/* ===== CARD STYLE (optional for later use) ===== */
+/* =========================
+   INFO BLOCKS (VERY USEFUL FOR SEO PAGES)
+========================= */
 .card {
+  background: var(--surface);
   border: 1px solid var(--border);
+  border-radius: var(--radius);
   padding: 16px;
-  border-radius: 8px;
-  margin-bottom: 16px;
+  margin: 16px 0;
+  box-shadow: var(--shadow);
 }
 
-/* ===== FOOTER ===== */
+/* =========================
+   CALLOUT / SYSTEM BOX
+========================= */
+.callout {
+  border-left: 4px solid var(--accent);
+  background: #f0fdfa;
+  padding: 14px 16px;
+  border-radius: var(--radius);
+  margin: 16px 0;
+}
+
+/* =========================
+   FOOTER
+========================= */
 footer {
-  margin-top: 60px;
+  margin-top: 50px;
   padding-top: 20px;
   border-top: 1px solid var(--border);
-  font-size: 14px;
+  font-size: 13px;
   color: var(--muted);
+}
+
+/* =========================
+   MOBILE RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+  body {
+    grid-template-columns: 1fr;
+  }
+
+  nav {
+    position: relative;
+    height: auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+
+  main {
+    padding: 22px 16px;
+  }
+}
+
+/* =========================
+   SUBTLE POLISH (FEELS "MODERN")
+========================= */
+::selection {
+  background: #dbeafe;
 }
