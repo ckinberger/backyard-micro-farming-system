@@ -80,6 +80,11 @@ nav a:hover {
   color: var(--text);
 }
 
+.site-nav a.active {
+  background: #e0f2fe;
+  color: #0f172a;
+  font-weight: 600;
+}
 /* =========================
    MAIN CONTENT AREA
 ========================= */
