@@ -28,15 +28,18 @@ document.addEventListener("DOMContentLoaded", loadNav);
 
 async function loadNav() {
   const navContainer = document.getElementById("nav");
-  if (!navContainer) return;
 
   const res = await fetch("/backyard-micro-farming-system/assets/nav.html");
   const html = await res.text();
 
   navContainer.innerHTML = html;
 
-  setupSearch();
   highlightActiveLink();
+
+  // 🔥 CRITICAL: ensure search initializes AFTER nav exists
+  if (typeof initSearch === "function") {
+    initSearch();
+  }
 }
 
 function setupSearch() {
