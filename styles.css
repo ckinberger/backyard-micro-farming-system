@@ -85,6 +85,44 @@ nav a:hover {
   color: #0f172a;
   font-weight: 600;
 }
+
+.site-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  border-bottom: 1px solid #e5e7eb;
+  font-family: Arial, sans-serif;
+}
+
+.nav-left a {
+  margin-right: 12px;
+  text-decoration: none;
+  color: #111827;
+  font-size: 14px;
+}
+
+.nav-left a:hover {
+  text-decoration: underline;
+}
+
+.nav-search input {
+  padding: 6px 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 13px;
+  width: 220px;
+}
+
+.nav-search input:focus {
+  outline: none;
+  border-color: #60a5fa;
+}
+
+.site-nav a.active {
+  font-weight: bold;
+  color: #1d4ed8;
+}
 /* =========================
    MAIN CONTENT AREA
 ========================= */
