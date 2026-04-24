@@ -27,7 +27,9 @@ body {
   margin: 0 auto;
   padding: 24px;
 }
-
+main {
+  max-width: 720px;
+}
 /* ===== NAV ===== */
 nav {
   display: flex;
