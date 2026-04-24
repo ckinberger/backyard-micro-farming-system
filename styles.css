@@ -1,4 +1,29 @@
 /* =========================
+   DESIGN SYSTEM (TOKENS)
+========================= */
+:root {
+  --bg: #ffffff;
+  --surface: #f8fafc;
+  --surface-2: #f1f5f9;
+
+  --text: #0f172a;
+  --muted: #64748b;
+
+  --border: #e2e8f0;
+
+  --link: #2563eb;
+  --link-hover: #1d4ed8;
+
+  --accent: #0f766e;
+
+  --radius: 10px;
+  --max-width: 920px;
+  --sidebar-width: 240px;
+
+  --shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+/* =========================
    RESET
 ========================= */
 * {
@@ -8,29 +33,7 @@
 }
 
 /* =========================
-   DESIGN TOKENS
-========================= */
-:root {
-  --bg: #ffffff;
-  --surface: #f8fafc;
-  --text: #0f172a;
-  --muted: #64748b;
-  --border: #e2e8f0;
-
-  --link: #2563eb;
-  --link-hover: #1d4ed8;
-
-  --accent: #0f766e;
-
-  --shadow: 0 1px 2px rgba(0,0,0,0.05);
-
-  --radius: 10px;
-  --max-width: 920px;
-  --sidebar-width: 240px;
-}
-
-/* =========================
-   BASE LAYOUT
+   BASE LAYOUT (KNOWLEDGE SYSTEM)
 ========================= */
 body {
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
@@ -44,16 +47,17 @@ body {
 }
 
 /* =========================
-   SIDEBAR NAV (APP-LIKE)
+   SIDEBAR NAV (PRIMARY INTERFACE)
 ========================= */
 nav {
   position: sticky;
   top: 0;
   height: 100vh;
 
-  padding: 18px 14px;
   background: var(--surface);
   border-right: 1px solid var(--border);
+
+  padding: 18px 14px;
 
   display: flex;
   flex-direction: column;
@@ -72,7 +76,7 @@ nav a {
 }
 
 nav a:hover {
-  background: #eef2ff;
+  background: var(--surface-2);
   color: var(--text);
 }
 
@@ -81,23 +85,23 @@ nav a:hover {
 ========================= */
 main {
   max-width: var(--max-width);
-  padding: 42px 28px;
+  padding: 44px 28px;
 }
 
 /* =========================
-   TYPOGRAPHY
+   TYPOGRAPHY SYSTEM
 ========================= */
 h1 {
-  font-size: 34px;
-  line-height: 1.2;
+  font-size: 36px;
+  line-height: 1.15;
   letter-spacing: -0.6px;
-  margin-bottom: 14px;
+  margin-bottom: 16px;
 }
 
 h2 {
   font-size: 20px;
-  margin-top: 34px;
-  margin-bottom: 10px;
+  margin-top: 36px;
+  margin-bottom: 12px;
 
   padding-bottom: 6px;
   border-bottom: 1px solid var(--border);
@@ -111,7 +115,6 @@ h3 {
 
 p {
   margin-bottom: 14px;
-  color: var(--text);
 }
 
 /* =========================
@@ -139,8 +142,13 @@ li {
 }
 
 /* =========================
-   INFO BLOCKS (VERY USEFUL FOR SEO PAGES)
+   CONTENT BLOCKS (SYSTEM UI)
 ========================= */
+section {
+  margin-bottom: 34px;
+}
+
+/* INFO CARD (for structured knowledge) */
 .card {
   background: var(--surface);
   border: 1px solid var(--border);
@@ -150,15 +158,21 @@ li {
   box-shadow: var(--shadow);
 }
 
-/* =========================
-   CALLOUT / SYSTEM BOX
-========================= */
+/* CALLOUT (important insights) */
 .callout {
   border-left: 4px solid var(--accent);
-  background: #f0fdfa;
+  background: #ecfdf5;
   padding: 14px 16px;
   border-radius: var(--radius);
   margin: 16px 0;
+}
+
+/* =========================
+   NAV HIGHLIGHT (ACTIVE FEEL)
+========================= */
+nav a.active {
+  background: #e0f2fe;
+  color: var(--text);
 }
 
 /* =========================
@@ -173,7 +187,14 @@ footer {
 }
 
 /* =========================
-   MOBILE RESPONSIVE
+   SELECTION
+========================= */
+::selection {
+  background: #dbeafe;
+}
+
+/* =========================
+   RESPONSIVE DESIGN
 ========================= */
 @media (max-width: 768px) {
   body {
@@ -192,11 +213,4 @@ footer {
   main {
     padding: 22px 16px;
   }
-}
-
-/* =========================
-   SUBTLE POLISH (FEELS "MODERN")
-========================= */
-::selection {
-  background: #dbeafe;
 }
