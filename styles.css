@@ -18,7 +18,7 @@
 
   --radius: 10px;
   --max-width: 920px;
-  --sidebar-width: 240px;
+  --sidebar-width: 260px;
 
   --shadow: 0 1px 2px rgba(0,0,0,0.05);
 }
@@ -33,7 +33,7 @@
 }
 
 /* =========================
-   BASE LAYOUT (KNOWLEDGE SYSTEM)
+   BASE LAYOUT (SIDEBAR SYSTEM)
 ========================= */
 body {
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
@@ -47,7 +47,7 @@ body {
 }
 
 /* =========================
-   SIDEBAR NAV (PRIMARY INTERFACE)
+   SIDEBAR NAV (INJECTED)
 ========================= */
 nav {
   position: sticky;
@@ -57,13 +57,16 @@ nav {
   background: var(--surface);
   border-right: 1px solid var(--border);
 
-  padding: 18px 14px;
+  padding: 14px 12px;
 
   display: flex;
   flex-direction: column;
   gap: 6px;
+
+  overflow-y: auto;
 }
 
+/* nav links */
 nav a {
   font-size: 14px;
   color: var(--muted);
@@ -80,49 +83,41 @@ nav a:hover {
   color: var(--text);
 }
 
-.site-nav a.active {
+/* active page */
+nav a.active {
   background: #e0f2fe;
-  color: #0f172a;
+  color: var(--text);
   font-weight: 600;
 }
 
-.site-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px 16px;
-  border-bottom: 1px solid #e5e7eb;
-  font-family: Arial, sans-serif;
-}
-
-.nav-left a {
-  margin-right: 12px;
-  text-decoration: none;
-  color: #111827;
-  font-size: 14px;
-}
-
-.nav-left a:hover {
-  text-decoration: underline;
+/* =========================
+   SEARCH BAR (NAV COMPONENT)
+========================= */
+.nav-search {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
 }
 
 .nav-search input {
-  padding: 6px 10px;
-  border: 1px solid #d1d5db;
-  border-radius: 6px;
+  width: 100%;
+  padding: 8px 10px;
+
   font-size: 13px;
-  width: 220px;
+
+  border: 1px solid var(--border);
+  border-radius: 8px;
+
+  background: white;
+  color: var(--text);
 }
 
 .nav-search input:focus {
   outline: none;
   border-color: #60a5fa;
+  box-shadow: 0 0 0 2px rgba(96,165,250,0.2);
 }
 
-.site-nav a.active {
-  font-weight: bold;
-  color: #1d4ed8;
-}
 /* =========================
    MAIN CONTENT AREA
 ========================= */
@@ -132,7 +127,7 @@ main {
 }
 
 /* =========================
-   TYPOGRAPHY SYSTEM
+   TYPOGRAPHY
 ========================= */
 h1 {
   font-size: 36px;
@@ -161,14 +156,14 @@ p {
 }
 
 /* =========================
-   LINKS
+   LINKS (CONTENT AREA)
 ========================= */
-a {
+main a {
   color: var(--link);
   text-decoration: none;
 }
 
-a:hover {
+main a:hover {
   color: var(--link-hover);
   text-decoration: underline;
 }
@@ -185,13 +180,12 @@ li {
 }
 
 /* =========================
-   CONTENT BLOCKS (SYSTEM UI)
+   CONTENT BLOCKS
 ========================= */
 section {
   margin-bottom: 34px;
 }
 
-/* INFO CARD (for structured knowledge) */
 .card {
   background: var(--surface);
   border: 1px solid var(--border);
@@ -201,21 +195,12 @@ section {
   box-shadow: var(--shadow);
 }
 
-/* CALLOUT (important insights) */
 .callout {
   border-left: 4px solid var(--accent);
   background: #ecfdf5;
   padding: 14px 16px;
   border-radius: var(--radius);
   margin: 16px 0;
-}
-
-/* =========================
-   NAV HIGHLIGHT (ACTIVE FEEL)
-========================= */
-nav a.active {
-  background: #e0f2fe;
-  color: var(--text);
 }
 
 /* =========================
@@ -237,7 +222,7 @@ footer {
 }
 
 /* =========================
-   RESPONSIVE DESIGN
+   RESPONSIVE
 ========================= */
 @media (max-width: 768px) {
   body {
@@ -247,10 +232,7 @@ footer {
   nav {
     position: relative;
     height: auto;
-    flex-direction: row;
-    flex-wrap: wrap;
-    border-right: none;
-    border-bottom: 1px solid var(--border);
+    flex-direction: column;
   }
 
   main {
