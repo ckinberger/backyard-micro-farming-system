@@ -34,9 +34,8 @@ async function loadNav() {
 
   navContainer.innerHTML = html;
 
-  highlightActiveLink();
+  highlightActiveLink(); // 👈 must run AFTER injection
 
-  // 🔥 CRITICAL: ensure search initializes AFTER nav exists
   if (typeof initSearch === "function") {
     initSearch();
   }
